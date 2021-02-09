@@ -10,3 +10,6 @@
 59 23 * * * sleep 59 && node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
 #
 10 10,11 * * 2-5 node /scripts/jd_entertainment.js >> /scripts/logs/jd_entertainment.log 2>&1
+#笑谱
+0 */30 8-23 * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
+
