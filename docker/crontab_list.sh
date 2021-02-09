@@ -11,5 +11,5 @@
 #
 10 10,11 * * 2-5 node /scripts/jd_entertainment.js >> /scripts/logs/jd_entertainment.log 2>&1
 #笑谱
-0 */30 8-23 * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
+*/30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
 
