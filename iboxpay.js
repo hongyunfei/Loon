@@ -329,8 +329,10 @@ async function all() {
         await console.log(`-------------------------\n\n🔔开始运行【${$.name+(i+1)}】`)
 
         await refreshtoken(); //更新TOKEN
-
-        if (LIVE == 999 && (nowTimes.getHours() === 12 || nowTimes.getHours() === 19 || nowTimes.getHours() === 21) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10)) {
+		for(let count = 0; count <= 20 ; count++){
+            hbylq();
+        }
+        if (LIVE == 3 && (nowTimes.getHours() === 12 || nowTimes.getHours() === 19 || nowTimes.getHours() === 21) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10)) {
             HBY = 1
             await hbylq(); //红包雨领取
         }
