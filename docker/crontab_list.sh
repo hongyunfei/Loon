@@ -14,4 +14,6 @@
 */30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
 #新年红包
 0 0,20-23 10-12 2 * node /scripts/jd_cxhb.js >> /scripts/logs/jd_cxhb.log 2>&1
+#
+10 20 10-13 2 * node /scripts/jd_xmf.js >> /scripts/logs/jd_xmf.log 2>&1
 
