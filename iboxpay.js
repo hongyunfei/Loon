@@ -1,8 +1,8 @@
 /* ziye 
-github地址 https://github.com/ziye12
+github地址 https://github.com/ziye66666
 TG频道地址  https://t.me/ziyescript
 TG交流群   https://t.me/joinchat/AAAAAE7XHm-q1-7Np-tF3g
-boxjs链接  https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/ziye.boxjs.json
+boxjs链接  https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/ziye.boxjs.json
 转载请备注个名字，谢谢
 
 ⚠️笑谱
@@ -90,15 +90,15 @@ hostname=veishop.iboxpay.com
 ############## 圈x
 
 #笑谱获取更新TOKEN
-https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf-user-auth-web\/ignore_tk\/veishop\/v1\/* url script-response-body https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/iboxpay.js
+https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf-user-auth-web\/ignore_tk\/veishop\/v1\/* url script-response-body https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/iboxpay.js
 
 ############## loon
-http-response https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf-user-auth-web\/ignore_tk\/veishop\/v1\/* script-path=https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/iboxpay.js, requires-body=1,max-size=0, tag=笑普token
+http-response https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf-user-auth-web\/ignore_tk\/veishop\/v1\/* script-path=https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/iboxpay.js, requires-body=1,max-size=0, tag=笑普token
 
 ############## surge
 
 #笑谱获取更新TOKEN
-笑谱获取更新TOKEN = type=http-response,pattern=https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf-user-auth-web\/ignore_tk\/veishop\/v1\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/iboxpay.js
+笑谱获取更新TOKEN = type=http-response,pattern=https:\/\/veishop\.iboxpay\.com\/nf_gateway\/nf-user-auth-web\/ignore_tk\/veishop\/v1\/*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/iboxpay.js
 
 
 
@@ -405,7 +405,7 @@ function getTOKEN(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
 
-            getTOKENbodyVal = `{"userPhone":"${phone}","smsCode":"${sms}","source":"VEISHOP_APP_IOS"}`
+            getTOKENbodyVal = `{"userPhone":"${phone}","smsCode":"${sms}","source":"VEISHOP_APP_ANDROID"}`
             let url = {
                 url: `https://veishop.iboxpay.com/nf_gateway/nf-user-auth-web/ignore_tk/veishop/v1/app_register_by_phone.json`,
                 headers: {
@@ -455,7 +455,7 @@ function refreshtoken(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
 
-            refreshtokenbodyVal = `{"refreshToken":"${refreshtokenVal}","source":"VEISHOP_APP_IOS"}`
+            refreshtokenbodyVal = `{"refreshToken":"${refreshtokenVal}","source":"VEISHOP_APP_ANDROID"}`
             let url = {
                 url: `https://veishop.iboxpay.com/nf_gateway/nf_user_auth_web/uc/ignore_tk/v1/refresh_access_token_to_c.json`,
                 headers: {
@@ -464,11 +464,11 @@ function refreshtoken(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -506,11 +506,11 @@ function user(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -556,11 +556,11 @@ function goldcoin(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -594,11 +594,11 @@ function hdid(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -641,11 +641,11 @@ function coin(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -689,11 +689,11 @@ function playo(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -730,11 +730,11 @@ function videoo(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -812,11 +812,11 @@ function play(timeout = 0) {
                             "version": "1.4.8",
                             "mchtNo": "100529600058887",
                             "Content-Type": "application/json; charset=utf-8",
-                            "source": "VEISHOP_APP_IOS",
+                            "source": "VEISHOP_APP_ANDROID",
                             "shopkeeperId": "1148855820752977920",
-                            "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                            "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                             "token": `${TOKEN}`,
-                            "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                            "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                             "traceid": "30000000000000000000" + tts() + "000000000000",
                             "Host": "veishop.iboxpay.com",
                             "Accept-Language": "zh-Hans-CN;q=1",
@@ -859,11 +859,11 @@ function video(timeout = 0) {
                             "version": "1.4.8",
                             "mchtNo": "100529600058887",
                             "Content-Type": "application/json; charset=utf-8",
-                            "source": "VEISHOP_APP_IOS",
+                            "source": "VEISHOP_APP_ANDROID",
                             "shopkeeperId": "1148855820752977920",
-                            "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                            "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                             "token": `${TOKEN}`,
-                            "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                            "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                             "traceid": "30000000000000000000" + tts() + "000000000000",
                             "Host": "veishop.iboxpay.com",
                             "Accept-Language": "zh-Hans-CN;q=1",
@@ -920,11 +920,11 @@ function goldvideo(timeout = 40000) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -969,11 +969,11 @@ function newvideo(timeout = 40000) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -1019,11 +1019,11 @@ function liveslist(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -1077,11 +1077,11 @@ function lives(timeout = 0) {
                             "version": "1.4.8",
                             "mchtNo": "100529600058887",
                             "Content-Type": "application/json; charset=utf-8",
-                            "source": "VEISHOP_APP_IOS",
+                            "source": "VEISHOP_APP_ANDROID",
                             "shopkeeperId": "1148855820752977920",
-                            "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                            "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                             "token": `${TOKEN}`,
-                            "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                            "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                             "traceid": "30000000000000000000" + tts() + "000000000000",
                             "Host": "veishop.iboxpay.com",
                             "Accept-Language": "zh-Hans-CN;q=1",
@@ -1132,11 +1132,11 @@ function sylist(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -1202,11 +1202,11 @@ function splimit(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -1247,11 +1247,11 @@ function newcashlist(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -1292,11 +1292,11 @@ function cashlist(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
@@ -1345,11 +1345,11 @@ function withdraw(timeout = 0) {
                     "version": "1.4.8",
                     "mchtNo": "100529600058887",
                     "Content-Type": "application/json; charset=utf-8",
-                    "source": "VEISHOP_APP_IOS",
+                    "source": "VEISHOP_APP_ANDROID",
                     "shopkeeperId": "1148855820752977920",
-                    "User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "token": `${TOKEN}`,
-                    "X-User-Agent": "VeiShop, 1.4.8 (iOS, 14.2, zh_CN, Apple, iPhone, )",
+                    "X-User-Agent": "Veishop,1.4.8(android,9,zh,meizu,16T, )",
                     "traceid": "30000000000000000000" + tts() + "000000000000",
                     "Host": "veishop.iboxpay.com",
                     "Accept-Language": "zh-Hans-CN;q=1",
