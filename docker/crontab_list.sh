@@ -10,4 +10,6 @@
 10 10,11 * * 2-5 node /scripts/jd_entertainment.js >> /scripts/logs/jd_entertainment.log 2>&1
 #笑谱
 */30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
+#京东价格保护
+5 0 * * * node /scripts/jd_priceProtect.js |ts >> /scripts/logs/jd_priceProtect.log 2>&1
 
