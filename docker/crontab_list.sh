@@ -12,4 +12,9 @@
 */30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
 #京东价格保护
 5 0 * * * node /scripts/jd_priceProtect.js |ts >> /scripts/logs/jd_priceProtect.log 2>&1
+#京东极速版签到
+0 6 * * * node /scripts/jd_speed_sign.js |ts >> /scripts/logs/jd_speed_sign.log 2>&1
+#京东极速版红包
+0 0 * * * node /scripts/jd_speed_redpocke.js |ts >> /scripts/logs/jd_speed_redpocke.log 2>&1
+
 
