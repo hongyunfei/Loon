@@ -12,5 +12,7 @@
 */30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
 #华硕
 1 0 22-28 2 * node /scripts/jd_asus_iqiyi.js >> /scripts/logs/jd_asus_iqiyi.log 2>&1
+#会员盲盒
+50 01 * * * node /scripts/jd_mhpuls.js |ts >> /scripts/logs/jd_mhpuls.log 2>&1
 
 
