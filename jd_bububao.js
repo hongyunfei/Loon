@@ -16,6 +16,7 @@ boxjs链接  https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/zi
 2.23 完成
 2.23 修复ck问题
 2.24 调整通知布局，修复抽奖宝箱
+2.27 修复签到问题
 
 ⚠️ 时间设置    0,30 0-23 * * *    每天 35次以上就行   
 
@@ -720,14 +721,15 @@ function sign(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 每日签到🚩: ${data}`);
-                    $.sign_html = JSON.parse(data);
+                    $.sign = JSON.parse(data);
                     if ($.sign.code == 1) {
                         console.log(`每日签到：${$.sign.msg}\n`);
                         $.message += `【每日签到】：${$.sign.msg}\n`;
-                        id = 2
+                        tid = 2
                         pos = 1
                         nonce_str = $.sign.nonce_str
-                    }
+                    await callback() 
+}
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -749,10 +751,10 @@ function sign_html(timeout = 0) {
                 try {
                     if (logs) $.log(`${O}, 签到列表🚩: ${data}`);
                     $.sign_html = JSON.parse(data);
-                    if ($.sign_html.code == 1) {
+                    if ($.sign_html.jinbi_html) {
                         console.log(`签到列表：已签到${$.sign_html.sign_day}天\n`);
                         $.message += `【签到列表】：已签到${$.sign_html.sign_day}天\n`;
-                        if ($.sign_html.is_sign_day != 1) {
+                        if ($.sign_html.is_sign_day == 0) {
                             await sign() //签到
                         }
                     }
