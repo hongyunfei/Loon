@@ -16,8 +16,6 @@
 */30 0-23 * * * node /scripts/jd_bububao.js >> /scripts/logs/jd_bububao.log 2>&1
 #华硕
 1 0 22-28 2 * node /scripts/jd_asus_iqiyi.js >> /scripts/logs/jd_asus_iqiyi.log 2>&1
-#会员盲盒
-0 0 * * * node /scripts/jd_mhpuls.js |ts >> /scripts/logs/jd_mhpuls.log 2>&1
 #财富岛
 10 * * * * node /scripts/jx_cfd.js |ts >> /scripts/logs/jx_cfd.log 2>&1
 #财富岛提现
