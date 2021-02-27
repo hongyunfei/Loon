@@ -19,9 +19,13 @@
 #会员盲盒
 0 0 * * * node /scripts/jd_mhpuls.js |ts >> /scripts/logs/jd_mhpuls.log 2>&1
 #财富岛
-1 7,13,19 * * * node /scripts/jx_cfd.js |ts >> /scripts/logs/jx_cfd.log 2>&1
+10 * * * * node /scripts/jx_cfd.js |ts >> /scripts/logs/jx_cfd.log 2>&1
 #财富岛提现
 0 0 * * * node /scripts/jx_cfdtx.js |ts >> /scripts/logs/jx_cfdtx.log 2>&1
+# 百变大咖秀第二期
+22 23,0,9 * * * node /scripts/jd_entertainment.js |ts >> /scripts/logs/jd_entertainment.log 2>&1
+# 京东摇一摇
+0 1,17 * * * node /scripts/jd_shake.js |ts >> /scripts/logs/jd_shake.log 2>&1
 
 
 
