@@ -12,7 +12,6 @@
 01 00,12,8,16 * * * sleep 01 && node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
 #笑谱1
 */30 8-16 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
-30 16 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
 #笑谱2
 */30 17-23 * * * node /scripts/iboxpay2.js >> /scripts/logs/iboxpay.log 2>&1
 #芝嫲视频
