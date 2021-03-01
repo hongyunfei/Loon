@@ -11,7 +11,7 @@
 #宠旺旺兑奖
 01 00,12,8,16 * * * sleep 01 && node /scripts/jd_joy_reward.js >> /scripts/logs/jd_joy_reward.log 2>&1
 #笑谱
-#*/30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
+*/30 8-23 * * * node /scripts/iboxpay.js >> /scripts/logs/iboxpay.log 2>&1
 #芝嫲视频
 0 * * * * node /scripts/jd_zhima.js >> /scripts/logs/jd_zhima.log 2>&1
 #步步宝
