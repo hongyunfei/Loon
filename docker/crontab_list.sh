@@ -15,7 +15,7 @@
 #笑谱2
 */30 17-23 * * * node /scripts/iboxpay2.js >> /scripts/logs/iboxpay.log 2>&1
 #芝嫲视频
-*/20 * * * node /scripts/jd_zhima.js >> /scripts/logs/jd_zhima.log 2>&1
+*/30 * * * node /scripts/jd_zhima.js >> /scripts/logs/jd_zhima.log 2>&1
 #步步宝
 */30 0-23 * * * node /scripts/jd_bububao.js >> /scripts/logs/jd_bububao.log 2>&1
 #华硕
