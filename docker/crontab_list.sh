@@ -27,6 +27,6 @@
 22 23,0,9 * * * node /scripts/jd_entertainment.js |ts >> /scripts/logs/jd_entertainment.log 2>&1
 # 京东摇一摇
 0 1,17 * * * node /scripts/jd_shake.js |ts >> /scripts/logs/jd_shake.log 2>&1
-
-
+# 红包雨
+30,31 20-23/1 2,5 3 * node /scripts/jd_redrain.js |ts >> /scripts/logs/jd_redrain.log 2>&1
 
