@@ -19,6 +19,8 @@
 */20 * * * * node /scripts/jd_zhima.js >> /scripts/logs/jd_zhima.log 2>&1
 #步步宝
 0,30 0-23 * * * node /scripts/jd_bububao.js >> /scripts/logs/jd_bububao.log 2>&1
+#悦动族
+0,30 0-23 * * * node /scripts/jd_yuedongzu.js >> /scripts/logs/jd_yuedongzu.log 2>&1
 #华硕
 1 0 22-28 2 * node /scripts/jd_asus_iqiyi.js >> /scripts/logs/jd_asus_iqiyi.log 2>&1
 #财富岛提现
