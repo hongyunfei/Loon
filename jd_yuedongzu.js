@@ -329,7 +329,7 @@ function msgShow() {
         if (notifyInterval == 3 && (nowTimes.getHours() === 6 || nowTimes.getHours() === 12 || nowTimes.getHours() === 18 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10)) {
             $.msg($.name, ``, $.message);
         }
-        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10))
+        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 21) && (nowTimes.getMinutes() >= 15 && nowTimes.getMinutes() <= 35))
             await notify.sendNotify($.name, $.message);
         resolve()
     })
@@ -1021,14 +1021,14 @@ function sleep_info(timeout = 0) {
                     if ($.sleep_info.is_sleep == 1) {
                         console.log(`睡觉状态：做梦中\n`);
                         $.message += `【睡觉状态】：做梦中\n`;
-                        if (nowTimes.getHours() === 7) {
+                        if (nowTimes.getHours() === 7 && nowTimes.getMinutes() ===15) {
                             await sleep_end()
                         }
                     }
                     if ($.sleep_info.is_sleep == 0) {
                         console.log(`睡觉状态：清醒中\n`);
                         $.message += `【睡觉状态】：清醒中\n`;
-                        if (nowTimes.getHours() === 20) {
+                        if (nowTimes.getHours() === 20 && nowTimes.getMinutes() ===15) {
                             await sleep_start()
                         }
                     }
