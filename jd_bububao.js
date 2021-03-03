@@ -1042,14 +1042,14 @@ function sleep_info(timeout = 0) {
                     if ($.sleep_info.is_sleep == 1) {
                         console.log(`睡觉状态：做梦中\n`);
                         $.message += `【睡觉状态】：做梦中\n`;
-                        if (nowTimes.getHours() === 23) {
+                        if (nowTimes.getHours() === 23 && nowTimes.getMinutes() ===15) {
                             await sleep_end()
                         }
                     }
                     if ($.sleep_info.is_sleep == 0) {
                         console.log(`睡觉状态：清醒中\n`);
                         $.message += `【睡觉状态】：清醒中\n`;
-                        if (nowTimes.getHours() === 0) {
+                        if (nowTimes.getHours() === 0 && nowTimes.getMinutes() ===15) {
                             await sleep_start()
                         }
                     }
