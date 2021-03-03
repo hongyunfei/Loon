@@ -15,7 +15,7 @@ boxjs链接  https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/ziye.
 3.2 调整抽奖机制，一次运行5次抽奖，抽中1000金币则兑奖
 3.2 修复手机不能跑的低级错误,调整提现时间为8点以后
 3.2-3 增加10分钟限速，修复用户名判定，修复视频助力
-3.3 完善提现判定，修复睡觉
+3.3 完善提现判定，修复睡觉，解决资讯赚报错问题
 
 ⚠️ 时间设置    0,30 0-23 * * *    每天 25次以上就行 
 
@@ -49,6 +49,7 @@ http-response https:\/\/yuedongzu\.yichengw\.cn\/* script-path=https://raw.githu
 ############## surge
 #悦动族获取TOKEN
 悦动族获取TOKEN = type=http-response,pattern=https:\/\/yuedongzu\.yichengw\.cn\/*,script-path=https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/yuedongzu.js
+
 
 */
 const $ = Env("悦动族");
@@ -390,7 +391,7 @@ function jinbi_record(timeout = 0) {
                                 console.log(`收益记录：距离上次收益${CZ}分钟，已限速10分钟\n`);
                                 $.message += `【收益记录】：距离上次收益${CZ}分钟，已限速10分钟\n`;
 
-                            } 
+                            }
 
                         }
                     } catch (e) {
@@ -781,11 +782,11 @@ function signget(timeout = 0) {
             $.post(url, async (err, resp, data) => {
                 try {
                     if (logs) $.log(`${O}, 每日签到🚩: ${data}`);
-                    $.sign = JSON.parse(data);
-                    if ($.sign.code == 200) {
+                    $.signget = JSON.parse(data);
+                    if ($.signget.code == 200) {
 
-                        console.log(`每日签到：领取${$.sign.jinbi}金币\n`);
-                        $.message += `【每日签到】：领取${$.sign.jinbi}金币\n`;
+                        console.log(`每日签到：领取${$.signget.jinbi}金币\n`);
+                        $.message += `【每日签到】：领取${$.signget.jinbi}金币\n`;
                     }
                 } catch (e) {
                     $.logErr(e, resp);
@@ -1633,11 +1634,11 @@ function news_info(timeout = 0) {
                     if ($.news_info.code == 200) {
                         console.log(`资讯赚页：今日获得${$.news_info.jinbi}金币\n`);
                         $.message += `【资讯赚页】：今日获得${$.news_info.jinbi}金币\n`;
-                        if ($.news_info.is_max == 0) {
+                        if ($.news_info.jinbi < 1000) {
                             nonce_str = $.news_info.nonce_str
                             await news_done() //资讯赚
                         }
-                        if ($.news_info.is_max == 1) {
+                        if ($.news_info.jinbi >= 1000) {
                             console.log(`资讯赚：完成\n`);
                             $.message += `【资讯赚】：完成\n`;
                         }
