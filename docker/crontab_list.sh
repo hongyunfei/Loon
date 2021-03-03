@@ -21,6 +21,8 @@
 15,45 0-23 * * * node /scripts/jd_bububao.js >> /scripts/logs/jd_bububao.log 2>&1
 #悦动族
 15,45 0-23 * * * node /scripts/jd_yuedongzu.js >> /scripts/logs/jd_yuedongzu.log 2>&1
+#全民悦动
+15,45 0-23 * * * node /scripts/jd_qmyd.js >> /scripts/logs/jd_qmyd.log 2>&1
 #华硕
 1 0 22-28 2 * node /scripts/jd_asus_iqiyi.js >> /scripts/logs/jd_asus_iqiyi.log 2>&1
 #财富岛提现
