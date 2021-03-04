@@ -7,20 +7,14 @@ boxjs链接  https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/ziye.
 转载请备注个名字，谢谢
 
 ⚠️全民悦动
-点击  http://qmyd.yichengw.cn/?id=28844 下载APP 或者APP Store 搜索全民悦动
+点击  http://qmyd.yichengw.cn/?id=115796 下载APP 谢谢支持
 
-2.28 制作
-3.1 完成
-3.1-2 修复前置报错，修复签到问题
-3.2 调整抽奖机制，一次运行5次抽奖，抽中1000金币则兑奖
-3.2 修复手机不能跑的低级错误,调整提现时间为8点以后
-3.2-3 增加10分钟限速，修复用户名判定，修复视频助力
-3.3 完善提现判定，修复睡觉，解决资讯赚报错问题
+3.3 制作
 
 ⚠️ 时间设置    0,30 0-23 * * *    每天 25次以上就行 
 
-一 视频助力手动也是不行的 
-二 默认20点睡7点醒，时间务必包括这两个点 
+
+一  默认20点睡7点醒，时间务必包括这两个点 
 (已内置随机udid，添加重写无视多设备检测，如非必要，勿频繁登录)
 
 ⚠️一共1个位置 1个ck  👉 2条 Secrets 
@@ -32,8 +26,8 @@ boxjs链接  https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/ziye.
 
 登录全民悦动  获取token
 
-qmydtokenVal 👉YDZ_qmydTOKEN
-CASH  👉  YDZ_CASH     可设置0 0.3 1 5 50 100 200 888  默认0关闭提现，设置888由上至下循环提现
+qmydtokenVal 👉QMYD_qmydTOKEN
+CASH  👉  QMYD_CASH     可设置0 0.3 1 5 50 100 200 888  默认0关闭提现，设置888由上至下循环提现
 
 ⚠️主机名以及重写👇
 hostname=qmyd.yichengw.cn,
@@ -50,7 +44,6 @@ http-response https:\/\/qmyd\.yichengw\.cn\/* script-path=https://raw.githubuser
 #全民悦动获取TOKEN
 全民悦动获取TOKEN = type=http-response,pattern=https:\/\/qmyd\.yichengw\.cn\/*,script-path=https://raw.githubusercontent.com/ziye11/JavaScript/main/Task/qmyd.js
 
-
 */
 const $ = Env("全民悦动");
 $.idx = ($.idx = ($.getval('qmydSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
@@ -65,10 +58,10 @@ const qmydtokenArr = [];
 let qmydtokenVal = ``;
 let middleqmydTOKEN = [];
 if ($.isNode()) {
-    // 没有设置 YDZ_CASH 则默认为 0 不兑换
-    CASH = process.env.YDZ_CASH || 0.3;
+    // 没有设置 QMYD_CASH 则默认为 0 不兑换
+    CASH = process.env.QMYD_CASH || 0.3;
 }
-if ($.isNode() && process.env.YDZ_qmydTOKEN) {
+if ($.isNode() && process.env.QMYD_qmydTOKEN) {
     COOKIES_SPLIT = process.env.COOKIES_SPLIT || "\n";
     console.log(
         `============ cookies分隔符为：${JSON.stringify(
@@ -76,19 +69,19 @@ if ($.isNode() && process.env.YDZ_qmydTOKEN) {
     )} =============\n`
     );
     if (
-        process.env.YDZ_qmydTOKEN &&
-        process.env.YDZ_qmydTOKEN.indexOf(COOKIES_SPLIT) > -1
+        process.env.QMYD_qmydTOKEN &&
+        process.env.QMYD_qmydTOKEN.indexOf(COOKIES_SPLIT) > -1
     ) {
-        middleqmydTOKEN = process.env.YDZ_qmydTOKEN.split(COOKIES_SPLIT);
+        middleqmydTOKEN = process.env.QMYD_qmydTOKEN.split(COOKIES_SPLIT);
     } else {
-        middleqmydTOKEN = process.env.YDZ_qmydTOKEN.split();
+        middleqmydTOKEN = process.env.QMYD_qmydTOKEN.split();
     }
 }
 if (COOKIE.qmydtokenVal) {
-    YDZ_COOKIES = {
+    QMYD_COOKIES = {
         "qmydtokenVal": COOKIE.qmydtokenVal.split('\n'),
     }
-    Length = YDZ_COOKIES.qmydtokenVal.length;
+    Length = QMYD_COOKIES.qmydtokenVal.length;
 }
 if (!COOKIE.qmydtokenVal) {
     if ($.isNode()) {
@@ -256,16 +249,16 @@ async function all() {
     if (!Length) {
         $.msg(
             $.name,
-            '提示：⚠️请点击前往获取 http://qmyd.yichengw.cn/?id=28844\n',
-            ' http://qmyd.yichengw.cn/?id=28844', {
-                "open-url": " http://qmyd.yichengw.cn/?id=28844"
+            '提示：⚠️请点击前往获取 http://qmyd.yichengw.cn/?id=115796\n',
+            ' http://qmyd.yichengw.cn/?id=115796', {
+                "open-url": " http://qmyd.yichengw.cn/?id=115796"
             }
         );
         return;
     }
     for (let i = 0; i < Length; i++) {
         if (COOKIE.qmydtokenVal) {
-            qmydtokenVal = YDZ_COOKIES.qmydtokenVal[i];
+            qmydtokenVal = QMYD_COOKIES.qmydtokenVal[i];
         }
         if (!COOKIE.qmydtokenVal) {
             qmydtokenVal = qmydtokenArr[i];
@@ -275,10 +268,10 @@ async function all() {
             'Authorization': `${qmydtokenVal}`,
             'Connection': `keep-alive`,
             'Accept-Encoding': `gzip, deflate, br`,
-            'version': `3`,
+            'version': `7`,
             'idfa': ``,
             'Content-Type': `application/x-www-form-urlencoded`,
-            'User-Agent': `YDZ/20 CFNetwork/1206 Darwin/20.1.0`,
+            'User-Agent': `QMYD/43 CFNetwork/1206 Darwin/20.1.0`,
             'platform': `2`,
             'imei': ``,
             'Host': `qmyd.yichengw.cn`,
@@ -291,11 +284,10 @@ async function all() {
         if (!cookie_is_live) {
             continue;
         }
-        await jinbi_record() //收益记录
+        //await jinbi_record() //收益记录
         if (CZ >= 10) {
             await help_index() //助力活动
             await home() //首页信息
-            await coupon() //签到
             await zhuan_index() //任务列表
             await pophongbaoyu() //红包雨
             await dk_info() //打卡
@@ -306,9 +298,9 @@ async function all() {
             await lucky() //转盘抽奖
             await $.wait(1000)
             await lucky() //转盘抽奖
-            await mystate() //福利
-            await kk_list() //看看赚
-            await news_info() //资讯赚
+            await news() //资讯赚
+            await lotteryindex() //抽手机
+            await cy_info() //答题
             await tixian_html() //提现
         }
 
@@ -330,7 +322,7 @@ function msgShow() {
         if (notifyInterval == 3 && (nowTimes.getHours() === 6 || nowTimes.getHours() === 12 || nowTimes.getHours() === 18 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10)) {
             $.msg($.name, ``, $.message);
         }
-        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 21) && (nowTimes.getMinutes() >= 15 && nowTimes.getMinutes() <= 35))
+        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 22) && (nowTimes.getMinutes() >= 45 && nowTimes.getMinutes() <= 55))
             await notify.sendNotify($.name, $.message);
         resolve()
     })
@@ -384,7 +376,7 @@ function jinbi_record(timeout = 0) {
                         if (logs) $.log(`${O}, 收益记录🚩: ${data}`);
                         $.jinbi_record = JSON.parse(data);
                         if ($.jinbi_record.code == 200) {
-                            if ($.jinbi_record.data && $.jinbi_record.data[0].add_date) {
+                            if ($.jinbi_record.data && $.jinbi_record.data[0] && $.jinbi_record.data[0].add_date) {
                                 newtime = $.jinbi_record.data[0].add_date + 'T' + $.jinbi_record.data[0].add_time
                                 CZ = ((tts() - timecs(newtime)) / 60000).toFixed(0)
 
@@ -740,37 +732,6 @@ function help_click(timeout = 0) {
         }, timeout)
     })
 }
-//提现券页
-function coupon(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://qmyd.yichengw.cn/apps/coupon?`,
-                headers: header,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 提现券页🚩: ${data}`);
-                    $.coupon = JSON.parse(data);
-                    if ($.coupon.code == 200) {
-                        qds = $.coupon.renwu.find(item => item.text === "今日已签" || item.text === "\u4eca\u65e5\u5df2\u7b7e");
-                        if (qds) {
-                            console.log(`每日签到：已完成，获得${qds.jinbi}金币\n`)
-                            $.message += `【每日签到】：已完成，获得${qds.jinbi}金币\n`;
-                        }
-                        if (!qds) {
-                            await signget() //签到
-                        }
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
 //每日签到
 function signget(timeout = 0) {
     return new Promise((resolve) => {
@@ -811,22 +772,57 @@ function zhuan_index(timeout = 0) {
                     $.zhuan_index = JSON.parse(data);
                     if ($.zhuan_index.code == 200) {
                         sps = $.zhuan_index.renwu.find(item => item.type === 5);
-                        zxzs = $.zhuan_index.renwu.find(item => item.type === 18);
+                        dggs = $.zhuan_index.renwu.find(item => item.type === 14);
                         dks = $.zhuan_index.renwu.find(item => item.type === 6);
                         hss = $.zhuan_index.renwu.find(item => item.type === 7);
                         cjs = $.zhuan_index.renwu.find(item => item.type === 8);
+                        csjs = $.zhuan_index.renwu.find(item => item.type === 10);
                         ggks = $.zhuan_index.renwu.find(item => item.type === 11);
+                        ccys = $.zhuan_index.renwu.find(item => item.type === 12);
                         bss = $.zhuan_index.renwu.find(item => item.type === 13);
                         rwrw = $.zhuan_index.renwu.find(item => item.st === 1);
+                        await $.wait(1000)
 
-
-                        console.log(`${sps.title}：${sps.text}${sps.jinbi}金币\n${zxzs.title}：${zxzs.text}${zxzs.jinbi}金币\n${dks.title}：${dks.text}${dks.jinbi}金币\n${hss.title}：${hss.text}${hss.jinbi}金币\n${cjs.title}：${cjs.text}${cjs.jinbi}金币\n${ggks.title}：${ggks.text}${ggks.jinbi}金币\n${bss.title}：${bss.text}${bss.jinbi}金币\n`)
-                        $.message += `【${sps.title}】：${sps.text}${sps.jinbi}金币\n【${zxzs.title}】：${zxzs.text}${zxzs.jinbi}金币\n【${dks.title}】：${dks.text}${dks.jinbi}金币\n【${hss.title}】：${hss.text}${hss.jinbi}金币\n【${cjs.title}】：${cjs.text}${cjs.jinbi}金币\n【${ggks.title}】：${ggks.text}${ggks.jinbi}金币\n【${bss.title}】：${bss.text}${bss.jinbi}金币\n`
+                        console.log(`看视频赚金币：${sps.text}${sps.jinbi}金币\n点广告赚金币：${dggs.text}${dggs.jinbi}金币\n${dks.title}：${dks.text}${dks.jinbi}金币\n${hss.title}：${hss.text}${hss.jinbi}金币\n${cjs.title}：${cjs.text}${cjs.jinbi}金币\n${csjs.title}：${csjs.text}${csjs.jinbi}金币\n${ggks.title}：${ggks.text}${ggks.jinbi}金币\n${ccys.title}：${ccys.text}${ccys.jinbi}金币\n${bss.title}：${bss.text}${bss.jinbi}金币\n`)
+                        $.message += `【看视频赚金币】：${sps.text}${sps.jinbi}金币\n【点广告赚金币】：${dggs.text}${dggs.jinbi}金币\n【${dks.title}】：${dks.text}${dks.jinbi}金币\n【${hss.title}】：${hss.text}${hss.jinbi}金币\n【${cjs.title}】：${cjs.text}${cjs.jinbi}金币\n【${csjs.title}】：${csjs.text}${csjs.jinbi}金币\n【${ggks.title}】：${ggks.text}${ggks.jinbi}金币\n【${ccys.title}】：${ccys.text}${ccys.jinbi}金币\n【${bss.title}】：${bss.text}${bss.jinbi}金币\n`
 
                         if (sps.st == 0) {
                             await ssp() //视频任务
                         }
-                        if (rwrw && rwrw.jinbi) {
+                        if (dggs.st == 0) {
+                            await admobile_show() //广告任务
+                        }
+                        if ($.zhuan_index.is_sign_day == 1) {
+                            console.log(`每日签到：已完成\n`)
+                            $.message += `【每日签到】：已完成\n`;
+                        } else {
+                            await signget() //签到
+                        }
+
+                        if ($.zhuan_index.jindan_time) {
+                            console.log(`金蛋时间：${$.zhuan_index.jindan_time}秒\n`);
+                            $.message += `【金蛋时间】：${$.zhuan_index.jindan_time}秒\n`;
+                        }
+                        if ($.zhuan_index.box_time) {
+                            console.log(`宝箱时间：${$.zhuan_index.box_time}秒\n`);
+                            $.message += `【宝箱时间】：${$.zhuan_index.box_time}秒\n`;
+                        }
+                        if ($.zhuan_index.jindan_st == 0) {
+                            await jindan_click() //金蛋
+                        }
+                        if ($.zhuan_index.box_st == 0) {
+                            await box_click() //宝箱
+                        }
+                        if ($.zhuan_index.jindan_st == 2) {
+                            console.log(`金蛋福利：已完成\n`);
+                            $.message += `【金蛋福利】：已完成\n`;
+                        }
+                        if ($.zhuan_index.box_st == 2) {
+                            console.log(`宝箱福利：已完成\n`);
+                            $.message += `【宝箱福利】：已完成\n`;
+                        }
+
+                        if (rwrw && rwrw.jinbi && dggs.st == 2) {
                             taskid = rwrw.type
                             taskjinbi = rwrw.jinbi
                             await zhuan_done()
@@ -851,6 +847,83 @@ async function ssp() {
     pos = 1
     await chuansj()
     await index()
+}
+//激活广告
+function admobile_show(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/admobile_show?`,
+                headers: header,
+            }
+            $.post(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 激活广告🚩: ${data}`);
+                    $.admobile_show = JSON.parse(data);
+                    if ($.admobile_show.code == 200) {
+
+                        await admobile_click() //点击广告
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+//点击广告
+function admobile_click(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/admobile_click?`,
+                headers: header,
+            }
+            $.post(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 点击广告🚩: ${data}`);
+                    $.admobile_click = JSON.parse(data);
+                    if ($.admobile_click.code == 200) {
+                        ad_id = $.admobile_click.ad_id
+                        nonce_str = $.admobile_click.nonce_str
+                        await admobile_done() //广告奖励
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+//广告奖励
+function admobile_done(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/admobile_done?`,
+                headers: header,
+                body: `nonce_str=${nonce_str}&ad_id=${ad_id}&`,
+            }
+            $.post(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 广告奖励🚩: ${data}`);
+                    $.admobile_done = JSON.parse(data);
+                    if ($.admobile_done.code == 200) {
+                        console.log(`广告奖励：获得${$.admobile_done.jinbi}金币\n`);
+                        $.message += `【广告奖励】：获得${$.admobile_done.jinbi}金币\n`;
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
 }
 //早晚打卡页
 function dk_info(timeout = 0) {
@@ -1245,6 +1318,189 @@ function guapost(timeout = 0) {
         }, timeout)
     })
 }
+//抽手机列表
+function lotteryindex(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/lottery/index?`,
+                headers: header,
+            }
+            $.get(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 抽手机列表🚩: ${data}`);
+                    $.lotteryindex = JSON.parse(data);
+                    if ($.lotteryindex.lottery_count) {
+
+                        console.log(`抽手机列表：剩余${$.lotteryindex.lottery_count}次，手机碎片${$.lotteryindex.phone_part}个，红包碎片${$.lotteryindex.hongbao_part}个\n`);
+                        $.message += `【抽手机列表】：剩余${$.lotteryindex.lottery_count}次，手机碎片${$.lotteryindex.phone_part}个，红包碎片${$.lotteryindex.hongbao_part}个\n`;
+                        if ($.lotteryindex.lottery_count >= 1) {
+                            await lotteryadd() //抽手机抽奖
+                        }
+                    }
+
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+//抽手机
+function lotteryadd(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/lottery/add?`,
+                headers: header,
+            }
+            $.get(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 抽手机🚩: ${data}`);
+                    $.lotteryadd = JSON.parse(data);
+                    if ($.lotteryadd.code == 200) {
+
+                        add = $.lotteryindex.data.options.find(item => item.id === $.lotteryadd.data.id);
+
+                        console.log(`抽手机：抽中 ${add.name}\n`);
+                        $.message += `【抽手机】：抽中 ${$.lotteryadd.tip}\n`;
+
+                        if ($.lotteryadd.data.id == 6) {
+                            tid = 16
+                            pos = 1
+                            nonce_str = $.lotteryadd.data.nonce_str
+                            await index()
+                        }
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+//手机碎片任务
+function part(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/part?part_pos=1&`,
+                headers: header,
+            }
+            $.get(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 手机碎片任务🚩: ${data}`);
+                    $.part = JSON.parse(data);
+                    if ($.part.code == 200) {
+                        console.log(`手机碎片任务：达标${$.part.data.phone_keep_day}天，视频进度${$.part.data.video_jindu}\n`);
+                        $.message += `【手机碎片任务】：达标${$.part.data.phone_keep_day}天，视频进度${$.part.data.video_jindu}\n`;
+
+                        if ($.part.data.is_dabiao == 0 && $.lotteryindex.lottery_count == 0) {
+                            await no_callback() //看视频
+                        }
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+//手机碎片任务视频
+function no_callback(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/no_callback?`,
+                headers: header,
+            }
+            $.get(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O},手机碎片任务视频🚩: ${data}`);
+                    $.no_callback = JSON.parse(data);
+                    if ($.no_callback.code == 200) {
+                        console.log(`手机碎片任务视频：成功\n`);
+                        $.message += `【手机碎片任务视频】：成功\n`;
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+
+//答题活动页
+function cy_info(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/cy_info?`,
+                headers: header,
+            }
+            $.post(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 答题活动页🚩: ${data}`);
+                    $.cy_info = JSON.parse(data);
+                    if ($.cy_info.code == 200) {
+                        console.log(`答题活动页：剩余${$.cy_info.day_num}次\n`);
+                        $.message += `【答题活动页】：剩余${$.cy_info.day_num}次\n`;
+                        cy_id = $.cy_info.cy_id
+                        site = $.cy_info.site
+                        day_num = $.cy_info.day_num
+                        if ($.cy_info.day_num >= 1) {
+                            await cy_click() //答题       
+                        }
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+
+//答题活动
+function cy_click(timeout = 0) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let url = {
+                url: `https://qmyd.yichengw.cn/apps/cy_click?`,
+                headers: header,
+                body: `cy_id=${cy_id}&site=${site}&`,
+            }
+            $.post(url, async (err, resp, data) => {
+                try {
+                    if (logs) $.log(`${O}, 答题活动🚩: ${data}`);
+                    $.cy_click = JSON.parse(data);
+                    if ($.cy_click.code == 200) {
+                        console.log(`答题成功：获得${$.cy_click.jinbi}金币\n`);
+                        $.message += `【答题成功】：获得${$.cy_click.jinbi}金币\n`;
+                        tid = 16
+                        pos = 1
+                        nonce_str = $.cy_click.nonce_str
+                        await index()
+                    }
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            })
+        }, timeout)
+    })
+}
+
 //转盘列表
 function lucky(timeout = 0) {
     return new Promise((resolve) => {
@@ -1336,57 +1592,13 @@ function lucky_box(timeout = 0) {
         }, timeout)
     })
 }
-//福利查询
-function mystate(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://qmyd.yichengw.cn/apps/mystate?`,
-                headers: header,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 福利查询🚩: ${data}`);
-                    $.mystate = JSON.parse(data);
-                    if ($.mystate.code == 200) {
-                        if ($.mystate.jindan_time) {
-                            console.log(`金蛋时间：${$.mystate.jindan_time}秒\n`);
-                            $.message += `【金蛋时间】：${$.mystate.jindan_time}秒\n`;
-                        }
-                        if ($.mystate.box_time) {
-                            console.log(`宝箱时间：${$.mystate.box_time}秒\n`);
-                            $.message += `【宝箱时间】：${$.mystate.box_time}秒\n`;
-                        }
-                        if ($.mystate.jindan_st == 0) {
-                            await jindan_click() //金蛋
-                        }
-                        if ($.mystate.box_st == 0) {
-                            await box_click() //宝箱
-                        }
-                        if ($.mystate.jindan_st == 2) {
-                            console.log(`金蛋福利：已完成\n`);
-                            $.message += `【金蛋福利】：已完成\n`;
-                        }
-                        if ($.mystate.box_st == 2) {
-                            console.log(`宝箱福利：已完成\n`);
-                            $.message += `【宝箱福利】：已完成\n`;
-                        }
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
+
 //金蛋前置
 function jindan_click(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://bububao.duoshoutuan.com/apps/jindan_click?`,
+                url: `https://qmyd.yichengw.cn/apps/jindan_click?`,
                 headers: header,
             }
             $.post(url, async (err, resp, data) => {
@@ -1398,10 +1610,7 @@ function jindan_click(timeout = 0) {
                         nonce_str = $.jindan_click.nonce_str
                         await jindan_done() //福利金蛋
                     }
-                    if ($.jindan_click.code == -1) {
-                        console.log(`福利金蛋：已完成\n`);
-                        $.message += `【福利金蛋】：已完成\n`;
-                    }
+
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -1416,7 +1625,7 @@ function jindan_done(timeout = 0) {
     return new Promise(async (resolve) => {
         setTimeout(() => {
                 let url = {
-                    url: `https://bububao.duoshoutuan.com/apps/jindan_done?`,
+                    url: `https://qmyd.yichengw.cn/apps/jindan_done?`,
                     headers: header,
                     body: `taskid=${taskid}&clicktime=${ts()}&donetime=${ts()}&nonce_str=${nonce_str}&`,
                 }
@@ -1424,7 +1633,7 @@ function jindan_done(timeout = 0) {
                     try {
                         if (logs) $.log(`${O}, 福利金蛋🚩: ${data}`);
                         $.jindan_done = JSON.parse(data);
-                        if ($.jindan_done.code == 1) {
+                        if ($.jindan_done.code == 200) {
                             console.log(`福利金蛋：${$.jindan_done.jinbi}金币,领取成功\n`);
                             $.message += `【福利金蛋】：${$.jindan_done.jinbi}金币,领取成功\n`;
                             nonce_str = $.jindan_done.nonce_str
@@ -1447,7 +1656,7 @@ function box_click(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://bububao.duoshoutuan.com/apps/box_click?`,
+                url: `https://qmyd.yichengw.cn/apps/box_click?`,
                 headers: header,
             }
             $.post(url, async (err, resp, data) => {
@@ -1459,10 +1668,7 @@ function box_click(timeout = 0) {
                         nonce_str = $.box_click.nonce_str
                         await box_done() //福利宝箱
                     }
-                    if ($.box_click.code == -1) {
-                        console.log(`福利宝箱：已完成\n`);
-                        $.message += `【福利宝箱】：已完成\n`;
-                    }
+
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -1477,7 +1683,7 @@ function box_done(timeout = 0) {
     return new Promise(async (resolve) => {
         setTimeout(() => {
                 let url = {
-                    url: `https://bububao.duoshoutuan.com/apps/box_done?`,
+                    url: `https://qmyd.yichengw.cn/apps/box_done?`,
                     headers: header,
                     body: `taskid=${taskid}&clicktime=${ts()}&donetime=${ts()}&nonce_str=${nonce_str}&`,
                 }
@@ -1485,7 +1691,7 @@ function box_done(timeout = 0) {
                     try {
                         if (logs) $.log(`${O}, 福利宝箱🚩: ${data}`);
                         $.box_done = JSON.parse(data);
-                        if ($.box_done.code == 1) {
+                        if ($.box_done.code == 200) {
                             console.log(`福利宝箱：${$.box_done.jinbi}金币,领取成功\n`);
                             $.message += `【福利宝箱】：${$.box_done.jinbi}金币,领取成功\n`;
                         }
@@ -1499,146 +1705,26 @@ function box_done(timeout = 0) {
             timeout)
     })
 }
-//看看赚列表
-function kk_list(timeout = 0) {
+
+//资讯赚页
+function news(timeout = 0) {
     return new Promise((resolve) => {
         setTimeout(() => {
             let url = {
-                url: `https://bububao.duoshoutuan.com/apps/kk_list?`,
+                url: `https://qmyd.yichengw.cn/apps/news?type_class=1`,
                 headers: header,
-                body: `page=1&page_limit=25&`,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 看看赚列表🚩: ${data}`);
-                    $.kk_list = JSON.parse(data);
-                    is_ok = $.kk_list.data.find(item => item.is_ok === 0);
-                    if (is_ok) {
-                        id = is_ok.id
-                        console.log(`看看赚列表：下个任务：${is_ok.mini_name}\n`);
-                        $.message += `【看看赚列表】：下个任务：${is_ok.mini_name}\n`;
-                        await kk_click() //看看赚执行
-                    } else {
-                        console.log(`看看赚：已完成\n`);
-                        $.message += `【看看赚】：已完成\n`;
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
-//看看赚执行
-function kk_click(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://bububao.duoshoutuan.com/apps/kk_click?`,
-                headers: header,
-                body: `mini_id=${id}&`,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 看看赚执行🚩: ${data}`);
-                    $.kk_click = JSON.parse(data);
-                    if ($.kk_click.taskid) {
-                        console.log(`看看赚执行：下个任务：${$.kk_click.mini_str}\n`);
-                        $.message += `【看看赚执行】：下个任务：${$.kk_click.mini_str}\n`;
-                        taskid = $.kk_click.taskid
-                        nonce_str = $.kk_click.nonce_str
-                        await $.wait(15000)
-                        await kk_kk() //看看上传
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
-//看看赚上传
-function kk_kk(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://hunter-report.dui88.com/tuiaExtLog?group=1&type=9&json=%7B%22subtype%22%3A%22head%22%2C%22tck_rid_6c8%22%3A%220a56e7aaklm541ew-6681973%22%2C%22slotId%22%3A%22353024%22%2C%22activityId%22%3A%2216765%22%2C%22consumerId%22%3A%2226444115908%22%2C%22timestamp%22%3A${tts()}%7D`,
-                headers: {
-                    "Host": "hunter-report.dui88.com"
-                },
             }
             $.get(url, async (err, resp, data) => {
                 try {
-                    if (logs) $.log(`${O}, 看看赚上传🚩: ${data}`);
-                    $.kk_kk = JSON.parse(data);
-                    console.log(`看看赚：${$.kk_kk.msg}\n`);
-                    $.message += `【看看赚】：${$.kk_kk.msg}\n`;
-                    await $.wait(30000)
-                    await kk_done() //看看赚完成
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
-//看看赚完成
-function kk_done(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://bububao.duoshoutuan.com/apps/kk_done?`,
-                headers: header,
-                body: `taskid=${taskid}&nonce_str=${nonce_str}&`,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
-                    if (logs) $.log(`${O}, 看看赚完成🚩: ${data}`);
-                    $.kk_done = JSON.parse(data);
-                    if ($.kk_done.code == 200) {
-                        console.log(`看看赚完成：获得${$.kk_done.jinbi}金币\n`);
-                        $.message += `【看看赚完成】：获得${$.kk_done.jinbi}金币\n`;
-                        tid = 16
-                        pos = 1
-                        nonce_str = $.kk_done.fb_str
-                        await index()
-                    }
-                } catch (e) {
-                    $.logErr(e, resp);
-                } finally {
-                    resolve()
-                }
-            })
-        }, timeout)
-    })
-}
-//资讯赚页
-function news_info(timeout = 0) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let url = {
-                url: `https://qmyd.yichengw.cn/apps/news_info?`,
-                headers: header,
-                body: `type_class=1&`,
-            }
-            $.post(url, async (err, resp, data) => {
-                try {
                     if (logs) $.log(`${O}, 资讯赚页🚩: ${data}`);
-                    $.news_info = JSON.parse(data);
-                    if ($.news_info.code == 200) {
-                        console.log(`资讯赚页：今日获得${$.news_info.jinbi}金币\n`);
-                        $.message += `【资讯赚页】：今日获得${$.news_info.jinbi}金币\n`;
-                        if ($.news_info.jinbi < 1000) {
-                            nonce_str = $.news_info.nonce_str
+                    $.news = JSON.parse(data);
+                    if ($.news.code == 200) {
+                        console.log(`资讯赚页：今日获得${$.news.jinbi}金币\n`);
+                        $.message += `【资讯赚页】：今日获得${$.news.jinbi}金币\n`;
+                        if ($.news.is_max == 0) {
+                            nonce_str = $.news.nonce_str
                             await news_done() //资讯赚
-                        }
-                        if ($.news_info.jinbi >= 1000) {
+                        } else {
                             console.log(`资讯赚：完成\n`);
                             $.message += `【资讯赚】：完成\n`;
                         }
@@ -1693,42 +1779,56 @@ function tixian_html(timeout = 0) {
                     if ($.tixian_html.tixian_html) {
                         jine1 = $.tixian_html.tixian_html.find(item => item.jine === '0.3');
                         jine2 = $.tixian_html.tixian_html.find(item => item.jine === '1');
-                        jine3 = $.tixian_html.tixian_html.find(item => item.jine === '5');
-                        jine4 = $.tixian_html.tixian_html.find(item => item.jine === '50');
-                        jine5 = $.tixian_html.tixian_html.find(item => item.jine === '100');
-                        jine6 = $.tixian_html.tixian_html.find(item => item.jine === '200');
+                        jine3 = $.tixian_html.tixian_html.find(item => item.jine === '10');
+                        jine4 = $.tixian_html.tixian_html.find(item => item.jine === '20');
+                        jine5 = $.tixian_html.tixian_html.find(item => item.jine === '30');
+                        jine6 = $.tixian_html.tixian_html.find(item => item.jine === '100');
+                        jine7 = $.tixian_html.tixian_html.find(item => item.jine === '200');
+                        jine8 = $.tixian_html.tixian_html.find(item => item.jine === '300');
+
+
+
                         day_tixian_tip = $.tixian_html.tixian_html.find(item => item.day_tixian_tip);
+                        await $.wait(1000)
                         if (day_tixian_tip) {
                             console.log(`提现查询：今日已提现\n`);
                             $.message += `【提现查询】：今日已提现\n`;
                         }
-                        console.log(`提现券：剩余${$.tixian_html.tixian_coupon}张券\n${jine2.jine}元：需要${jine2.cond}张券\n${jine3.jine}元：需要${jine3.cond}张券\n`);
-                        $.message += `【提现券】：剩余${$.tixian_html.tixian_coupon}张券\n【${jine2.jine}元】：需要${jine2.cond}张券\n【${jine3.jine}元】：需要${jine3.cond}张券\n`;
-                        if (!day_tixian_tip && nowTimes.getHours() >= 8 && ($.user.wx_username != "" || $.user.is_weixin == 1)) {
+                        console.log(`提现券：剩余${$.tixian_html.tixian_coupon}张券\n${jine2.jine}元：需要${jine2.cond}张券\n${jine3.jine}元：需要${jine3.cond}张券\n${jine4.jine}元：需要${jine4.cond}张券\n${jine5.jine}元：需要${jine5.cond}张券\n`);
+                        $.message += `【提现券】：剩余${$.tixian_html.tixian_coupon}张券\n【${jine2.jine}元】：需要${jine2.cond}张券\n【${jine3.jine}元】：需要${jine3.cond}张券\n【${jine4.jine}元】：需要${jine4.cond}张券\n【${jine5.jine}元】：需要${jine5.cond}张券\n`;
+
+                        if (!day_tixian_tip && ($.user.wx_username != "" || $.user.is_weixin == 1)) {
                             if (CASH == 0.3 && $.user.money >= CASH && $.user.day_jinbi >= 6000) {
                                 await tixian() //提现
                             }
-                            if (CASH == 1 && $.tixian_html.tixian_coupon >= 8 && $.user.money >= CASH) {
+                            if (CASH == 1 && $.tixian_html.tixian_coupon >= 3 && $.user.money >= CASH) {
                                 await tixian() //提现
                             }
-                            if (CASH == 5 && $.tixian_html.tixian_coupon >= 30 && $.user.money >= CASH) {
+                            if (CASH == 10 && $.tixian_html.tixian_coupon >= 15 && $.user.money >= CASH) {
                                 await tixian() //提现
                             }
-                            if (CASH > 5 && CASH <= 200 && $.user.money >= CASH) {
+                            if (CASH == 20 && $.tixian_html.tixian_coupon >= 20 && $.user.money >= CASH) {
+                                await tixian() //提现
+                            }
+                            if (CASH == 30 && $.tixian_html.tixian_coupon >= 25 && $.user.money >= CASH) {
                                 await tixian() //提现
                             }
                             if (CASH == 888) {
-                                if ($.user.money >= 200) {
+                                if ($.user.money >= 300) {
+                                    CASH = 300
+                                } else if ($.user.money >= 200) {
                                     CASH = 200
                                 } else if ($.user.money >= 100) {
                                     CASH = 100
-                                } else if ($.user.money >= 50) {
-                                    CASH = 50
-                                } else if ($.user.money > 5 && $.tixian_html.tixian_coupon >= 30) {
-                                    CASH = 5
-                                } else if ($.user.money > 1 && $.tixian_html.tixian_coupon >= 8) {
+                                } else if ($.user.money > 30 && $.tixian_html.tixian_coupon >= 25) {
+                                    CASH = 30
+                                } else if ($.user.money > 20 && $.tixian_html.tixian_coupon >= 20) {
+                                    CASH = 20
+                                } else if ($.user.money > 10 && $.tixian_html.tixian_coupon >= 15) {
+                                    CASH = 10
+                                } else if ($.user.money > 1 && $.tixian_html.tixian_coupon >= 3) {
                                     CASH = 1
-                                } else if ($.user.money > 5 && $.user.day_jinbi >= 6000) {
+                                } else if ($.user.money > 0.3 && $.user.day_jinbi >= 6000) {
                                     CASH = 0.3
                                 }
                                 if (CASH != 888) {
