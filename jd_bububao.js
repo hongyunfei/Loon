@@ -18,6 +18,8 @@ boxjs链接  https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/zi
 3.2 调整抽奖机制， 一次运行5次抽奖， 抽中1000金币则兑奖
 3.3 修复签到，增加10分钟限速，完善提现判定，修复睡觉，调整为抽奖200金币也领取
 3.3-2 调整刮奖机制 分3个时间段刮奖
+3.4 取消限速
+3.5 优化提现
 
 ⚠️ 时间设置    0,30 0-23 * * *    每天 35次以上就行   
 
@@ -72,7 +74,7 @@ let bububaotokenVal = ``;
 let middlebububaoTOKEN = [];
 if ($.isNode()) {
     // 没有设置 FL_DHCASH 则默认为 0 不兑换
-    CASH = process.env.BBB_CASH || 0.3;
+    CASH = process.env.BBB_CASH || 0;
 }
 if ($.isNode() && process.env.BBB_bububaoTOKEN) {
     COOKIES_SPLIT = process.env.COOKIES_SPLIT || "\n";
@@ -339,7 +341,7 @@ function msgShow() {
         if (notifyInterval == 3 && (nowTimes.getHours() === 6 || nowTimes.getHours() === 12 || nowTimes.getHours() === 18 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10)) {
             $.msg($.name, ``, $.message);
         }
-        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 45 && nowTimes.getMinutes() <= 50))
+        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 15 && nowTimes.getMinutes() <= 35))
             await notify.sendNotify($.name, $.message);
         resolve()
     })
@@ -1685,8 +1687,7 @@ function tixian_html(timeout = 0) {
                     if (logs) $.log(`${O}, 提现页🚩: ${data}`);
                     $.tixian_html = JSON.parse(data);
                     if ($.tixian_html.tixian_html) {
-                        jine1 = $.tixian_html.tixian_html.find(item => item.jine === '0.3');
-                        jine2 = $.tixian_html.tixian_html.find(item => item.jine === '1');
+                       
                         jine3 = $.tixian_html.tixian_html.find(item => item.jine === '50');
                         jine4 = $.tixian_html.tixian_html.find(item => item.jine === '100');
                         jine5 = $.tixian_html.tixian_html.find(item => item.jine === '200');
@@ -1702,10 +1703,8 @@ function tixian_html(timeout = 0) {
                         $.message += `【${jine3.jine}元】：${jine3.fenshu_tixian_tip}\n【${jine4.jine}元】：${jine4.fenshu_tixian_tip}\n【${jine5.jine}元】：${jine5.fenshu_tixian_tip}\n`;
 
                         if (!day_tixian_tip && ($.user.wx_username != "" || $.user.is_weixin == 1)) {
-                            if (CASH == 0.3 && $.user.day_jinbi >= 5000 && $.user.money >= CASH) {
-                                await tixian() //提现
-                            }
-                            if (CASH > 0.3 && CASH <= 200 && $.user.money >= CASH) {
+                            
+                            if (CASH > 49 && CASH <= 200 && $.user.money >= CASH) {
                                 await tixian() //提现
                             }
                             if (CASH == 888) {
@@ -1715,9 +1714,7 @@ function tixian_html(timeout = 0) {
                                     CASH = 100
                                 } else if ($.user.money >= 50 && fenshu5 > 0) {
                                     CASH = 50
-                                } else if ($.user.money > 0.3 && $.user.day_jinbi >= 5000) {
-                                    CASH = 0.3
-                                }
+                                } 
                                 if (CASH != 888) {
                                     await tixian() //提现
                                 }
