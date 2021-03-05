@@ -24,7 +24,7 @@
 #全民悦动
 15,45 7-20 * * * node /scripts/jd_qmyd.js >> /scripts/logs/jd_qmyd.log 2>&1
 #返利网
-05 10-14 * * * node /scripts/jd_flw.js >> /scripts/logs/jd_flw.log 2>&1
+05 10,12,14 * * * node /scripts/jd_flw.js >> /scripts/logs/jd_flw.log 2>&1
 #华硕
 1 0 22-28 2 * node /scripts/jd_asus_iqiyi.js >> /scripts/logs/jd_asus_iqiyi.log 2>&1
 #财富岛提现
