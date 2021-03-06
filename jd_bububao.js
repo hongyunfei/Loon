@@ -74,7 +74,7 @@ let bububaotokenVal = ``;
 let middlebububaoTOKEN = [];
 if ($.isNode()) {
     // 没有设置 FL_DHCASH 则默认为 0 不兑换
-    CASH = process.env.BBB_CASH || 0;
+    CASH = process.env.BBB_CASH || 0.3;
 }
 if ($.isNode() && process.env.BBB_bububaoTOKEN) {
     COOKIES_SPLIT = process.env.COOKIES_SPLIT || "\n";
@@ -341,7 +341,7 @@ function msgShow() {
         if (notifyInterval == 3 && (nowTimes.getHours() === 6 || nowTimes.getHours() === 12 || nowTimes.getHours() === 18 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 0 && nowTimes.getMinutes() <= 10)) {
             $.msg($.name, ``, $.message);
         }
-        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 23) && (nowTimes.getMinutes() >= 15 && nowTimes.getMinutes() <= 35))
+        if (notifyttt == 1 && $.isNode() && (nowTimes.getHours() === 12 || nowTimes.getHours() === 20) && (nowTimes.getMinutes() >= 15 && nowTimes.getMinutes() <= 35))
             await notify.sendNotify($.name, $.message);
         resolve()
     })
@@ -1687,7 +1687,8 @@ function tixian_html(timeout = 0) {
                     if (logs) $.log(`${O}, 提现页🚩: ${data}`);
                     $.tixian_html = JSON.parse(data);
                     if ($.tixian_html.tixian_html) {
-                       
+                        jine1 = $.tixian_html.tixian_html.find(item => item.jine === '0.3');
+                        jine2 = $.tixian_html.tixian_html.find(item => item.jine === '1');
                         jine3 = $.tixian_html.tixian_html.find(item => item.jine === '50');
                         jine4 = $.tixian_html.tixian_html.find(item => item.jine === '100');
                         jine5 = $.tixian_html.tixian_html.find(item => item.jine === '200');
@@ -1703,8 +1704,10 @@ function tixian_html(timeout = 0) {
                         $.message += `【${jine3.jine}元】：${jine3.fenshu_tixian_tip}\n【${jine4.jine}元】：${jine4.fenshu_tixian_tip}\n【${jine5.jine}元】：${jine5.fenshu_tixian_tip}\n`;
 
                         if (!day_tixian_tip && ($.user.wx_username != "" || $.user.is_weixin == 1)) {
-                            
-                            if (CASH > 49 && CASH <= 200 && $.user.money >= CASH) {
+                            if (CASH == 0.3 && $.user.day_jinbi >= 5000 && $.user.money >= CASH) {
+                                await tixian() //提现
+                            }
+                            if (CASH > 0.3 && CASH <= 200 && $.user.money >= CASH) {
                                 await tixian() //提现
                             }
                             if (CASH == 888) {
@@ -1714,6 +1717,8 @@ function tixian_html(timeout = 0) {
                                     CASH = 100
                                 } else if ($.user.money >= 50 && fenshu5 > 0) {
                                     CASH = 50
+							    } else if ($.user.money > 0.3 && $.user.day_jinbi >= 5000) {
+                                    CASH = 0.3
                                 } 
                                 if (CASH != 888) {
                                     await tixian() //提现
