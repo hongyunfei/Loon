@@ -19,10 +19,6 @@
 */20 * * * * node /scripts/jd_zhima.js >> /scripts/logs/jd_zhima.log 2>&1
 #步步宝
 15,45 0-23 * * * node /scripts/jd_bububao.js >> /scripts/logs/jd_bububao.log 2>&1
-#悦动族
-15,45 7-20 * * * node /scripts/jd_yuedongzu.js >> /scripts/logs/jd_yuedongzu.log 2>&1
-#全民悦动
-15,45 7-20 * * * node /scripts/jd_qmyd.js >> /scripts/logs/jd_qmyd.log 2>&1
 #返利网
 05 10,12,14 * * * node /scripts/jd_flw.js >> /scripts/logs/jd_flw.log 2>&1
 #书旗
