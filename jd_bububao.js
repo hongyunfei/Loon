@@ -280,15 +280,15 @@ async function all() {
             bububaotokenVal = bububaotokenArr[i];
         }
         header = {
-            'store': `appstore`,
+            'store': `0`,
             'tokenstr': `${bububaotokenVal}`,
             'Connection': `keep-alive`,
-            'Accept-Encoding': `gzip, deflate, br`,
-            'version': `10`,
+            'Accept-Encoding': `gzip`,
+            'version': `18`,
             'idfa': ``,
             'Content-Type': `application/x-www-form-urlencoded`,
-            'User-Agent': `BBB/132 CFNetwork/1206 Darwin/20.1.0`,
-            'platform': `2`,
+            'User-Agent': `Dalvik/2.1.0 (Linux; U; Android 9; 16T Build/PKQ1.190616.001)`,
+            'platform': `1`,
             'imei': ``,
             'Cookie': ``,
             'Host': `bububao.duoshoutuan.com`,
@@ -1052,7 +1052,7 @@ function sleep_info(timeout = 0) {
                     if ($.sleep_info.is_sleep == 0) {
                         console.log(`睡觉状态：清醒中\n`);
                         $.message += `【睡觉状态】：清醒中\n`;
-                        if (nowTimes.getHours() === 0 && nowTimes.getMinutes() ===15) {
+                        if (nowTimes.getHours() === 6 && nowTimes.getMinutes() ===15) {
                             await sleep_start()
                         }
                     }
