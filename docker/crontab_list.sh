@@ -19,6 +19,8 @@
 15,45 0-23 * * * node /scripts/jd_bububao.js >> /scripts/logs/jd_bububao.log 2>&1
 #返利网
 05 10,12,14 * * * node /scripts/jd_flw.js >> /scripts/logs/jd_flw.log 2>&1
+#春风转
+06,36 10-21 * * * node /scripts/jd_cfz.js >> /scripts/logs/jd_cfz.log 2>&1
 #书旗
 05 8,20 * * * node /scripts/jd_sqxs.js >> /scripts/logs/jd_sqxs.log 2>&1
 #华硕
