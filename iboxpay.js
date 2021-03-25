@@ -23,7 +23,7 @@ boxjs链接  https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/zi
 1.31 增加180秒任务,优先直播，修改直播金币显示
 1.31-2 调整判定
 2.1 增加CK获取时间
-2.2 优化
+2.2 优化1
 2.3 修复直播问题，采用真实直播id
 2.3 设置LIVE 为61 时  单跑直播
 2.3 修复错误，修复直播收益显示
