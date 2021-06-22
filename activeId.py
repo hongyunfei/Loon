@@ -109,9 +109,9 @@ def tgNofity(user_id, bot_token, text):
 if __name__ == '__main__':
     path_list = os.path.realpath(__file__).split('/')[1:]
     env = '/' + '/'.join(path_list[:-2])
-    if os.path.isfile('/ql/config/evn.sh') or os.path.isfile(f'{env}/config/evn.sh'):  # 青龙
+    if os.path.isfile('/ql/config/cookie.sh') or os.path.isfile(f'{env}/config/cookie.sh'):  # 青龙
         isv4 = False
-        if not os.path.isfile(f'{env}/config/env.sh'):  # 青龙容器内
+        if not os.path.isfile(f'{env}/config/cookie.sh'):  # 青龙容器内
             env = '/ql'
     else:  # v4-bot
         isv4 = True
